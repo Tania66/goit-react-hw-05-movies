@@ -1,10 +1,9 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import {
   Info,
   Span,
   Wrapp,
   MovieTitle,
-  Cast,
   LinksStyle,
   LinkList,
 } from './Pages.styled';
