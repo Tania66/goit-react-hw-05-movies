@@ -8,7 +8,7 @@ export const useFetchSearchMovies = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const query = searchParams.get('query') ?? '';
+  const query = searchParams.get('query');
 
   const handleSubmit = value => {
     setSearchParams({ query: value });

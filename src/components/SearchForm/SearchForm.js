@@ -14,7 +14,7 @@ export const SearchForm = ({ onSearch }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
+    if (!query.trim()) return alert('Can not be empty');
     onSearch(query);
     setQuery('');
   };
