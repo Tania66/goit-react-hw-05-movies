@@ -19,11 +19,14 @@ export const Name = styled.h3`
 text-align: center;
 font-size: 20px;
 font-weight: 600;
+color:#F5F6F8;
+margin-bottom: 0;
+margin-top: 0;
 `;
 
 export const Character = styled.p`
 text-align: center;
 font-size: 15px;
 font-weight: 500;
-
+color:#F5F6F8;
 `;

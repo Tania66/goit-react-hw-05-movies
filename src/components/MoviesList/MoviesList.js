@@ -1,5 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
-import { List, Title, ListItem } from './MoviesList.styled';
+import {
+  List,
+  Title,
+  ListItem,
+  ImgPoster,
+  ErrorMessage,
+} from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
   const defaultImg = `https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700`;
@@ -12,7 +18,7 @@ const MoviesList = ({ movies }) => {
           <ListItem key={movieData.id}>
             <Link to={`/movies/${movieData.id}`} state={{ from: location }}>
               <Title>{movieData.title}</Title>
-              <img
+              <ImgPoster
                 src={
                   movieData.poster_path
                     ? [
@@ -27,7 +33,9 @@ const MoviesList = ({ movies }) => {
           </ListItem>
         ))
       ) : (
-        <li>Sorry, not found film</li>
+        <li>
+          <ErrorMessage>❌ Sorry, not found film</ErrorMessage>
+        </li>
       )}
     </List>
   );

@@ -1,20 +1,21 @@
 import Loader from 'components/Loader/Loader';
 import { useFetchMovieReviews } from 'hooks';
-import { ListReviews } from './Reviews.styled';
+import { ListReviews, ReviewsTitle, ReviewsText } from './Reviews.styled';
+import { ErrorMessage } from 'components/MoviesList/MoviesList.styled';
 
 const Reviews = () => {
   const { error, loading, reviews } = useFetchMovieReviews();
   return (
     <div>
       {loading && <Loader />}
-      {error && <p>❌ Something went wrong - {error}</p>}
+      {error && <ErrorMessage>❌ Something went wrong - {error}</ErrorMessage>}
       {reviews && (
         <ListReviews>
           {reviews.length > 0 ? (
             reviews.map(review => (
               <li key={review.id}>
-                <h3>{review.author}</h3>
-                <p>{review.content}</p>
+                <ReviewsTitle>{review.author}</ReviewsTitle>
+                <ReviewsText>{review.content}</ReviewsText>
               </li>
             ))
           ) : (

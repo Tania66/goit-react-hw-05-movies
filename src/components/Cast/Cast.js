@@ -1,5 +1,9 @@
 import { CastList, Character, Inner, Name } from './Cast.styled';
 import Loader from 'components/Loader/Loader';
+import {
+  ErrorMessage,
+  ListItem,
+} from 'components/MoviesList/MoviesList.styled';
 import { useFetchMovieCast } from 'hooks';
 
 const Cast = () => {
@@ -9,12 +13,12 @@ const Cast = () => {
   return (
     <Inner>
       {loading && <Loader />}
-      {error && <p>❌ Something went wrong - {error}</p>}
+      {error && <ErrorMessage>❌ Something went wrong - {error}</ErrorMessage>}
       {cast && (
         <CastList>
           {cast.length > 0 ? (
             cast.map(item => (
-              <li key={item.id}>
+              <ListItem key={item.id}>
                 <Name>{item.name}</Name>
                 <Character>Character: {item.character}</Character>
                 <img
@@ -26,10 +30,12 @@ const Cast = () => {
                   alt={item.name}
                   width={250}
                 />
-              </li>
+              </ListItem>
             ))
           ) : (
-            <li>We don't have information about cast</li>
+            <li>
+              <ErrorMessage>We don't have information about cast</ErrorMessage>
+            </li>
           )}
         </CastList>
       )}

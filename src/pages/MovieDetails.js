@@ -6,10 +6,17 @@ import {
   MovieTitle,
   LinksStyle,
   LinkList,
+  MovieSubTitle,
+  MovieText,
+  ContentWrapp,
 } from './Pages.styled';
 import Loader from 'components/Loader/Loader';
 import { useFetchMovieDetails } from 'hooks';
 import { useRef } from 'react';
+import {
+  ErrorMessage,
+  ImgPoster,
+} from 'components/MoviesList/MoviesList.styled';
 
 const MovieDetails = () => {
   const { movies, loading, error } = useFetchMovieDetails();
@@ -21,12 +28,12 @@ const MovieDetails = () => {
     <Wrapp>
       <LinksStyle to={backLinkHref.current}>Back</LinksStyle>
       {loading && <Loader />}
-      {error && <p>❌ Something went wrong - {error}</p>}
+      {error && <ErrorMessage>❌ Something went wrong - {error}</ErrorMessage>}
       {movies && (
         <>
           <MovieTitle>{movies.title}</MovieTitle>
           <Info>
-            <img
+            <ImgPoster
               src={
                 movies.poster_path
                   ? [`https://image.tmdb.org/t/p/w500${movies.poster_path}`]
@@ -36,18 +43,18 @@ const MovieDetails = () => {
               width={250}
             />
 
-            <div>
-              <h2>User score:</h2>
-              <p>{movies.popularity}</p>
-              <h2>Overview</h2>
-              <p>{movies.overview}</p>
-              <h2>Genre</h2>
-              <p>
+            <ContentWrapp>
+              <MovieSubTitle>User score:</MovieSubTitle>
+              <MovieText>{movies.popularity}</MovieText>
+              <MovieSubTitle>Overview</MovieSubTitle>
+              <MovieText>{movies.overview}</MovieText>
+              <MovieSubTitle>Genre</MovieSubTitle>
+              <MovieText>
                 {movies.genres.map(genre => (
                   <Span key={genre.id}>{genre.name}</Span>
                 ))}
-              </p>
-            </div>
+              </MovieText>
+            </ContentWrapp>
           </Info>
 
           <LinkList>

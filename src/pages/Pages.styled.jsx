@@ -22,15 +22,30 @@ flex-direction: column;
 export const LinksStyle = styled(Link)`
 margin-top: 15px;
 text-decoration:none;
-background-color: #7E8FDD;
+background-color: #8C31FF;
 color: white;
 padding: 10px;
 border-radius: 5px;
 `;
 
+export const ContentWrapp = styled.div`
+  border-radius: 26px;
+border: 0.5px solid #424750;
+background: #282C30;
+box-shadow: 4px 4px 20px 0px rgba(16, 16, 18, 0.75), -3px -3px 15px 0px #262E32;
+padding: 10px;
+`;
 
 export const MovieTitle = styled.h1`
+color:#F5F6F8;
+`;
 
+export const MovieSubTitle = styled.h2`
+color:#F5F6F8;
+`;
+
+export const MovieText = styled.p`
+color:#F5F6F8;
 `;
 
 

@@ -1,6 +1,7 @@
 // import { useSearchParams } from 'react';
 import Loader from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
+import { ErrorMessage } from 'components/MoviesList/MoviesList.styled';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useFetchSearchMovies } from 'hooks';
 
@@ -11,7 +12,7 @@ const Movies = () => {
     <div>
       <SearchForm onSearch={handleSubmit} />
       {loading && <Loader />}
-      {error && <p>❌ Something went wrong - {error}</p>}
+      {error && <ErrorMessage>❌ Something went wrong - {error}</ErrorMessage>}
       {search && <MoviesList movies={search} />}
     </div>
   );
