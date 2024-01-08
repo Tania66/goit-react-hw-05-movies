@@ -19,7 +19,12 @@ const Reviews = () => {
               </li>
             ))
           ) : (
-            <li>We don't have information about reviews</li>
+            <li>
+              {' '}
+              <ErrorMessage>
+                We don't have information about reviews
+              </ErrorMessage>
+            </li>
           )}
         </ListReviews>
       )}
